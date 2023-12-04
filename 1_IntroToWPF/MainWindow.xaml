@@ -1,0 +1,23 @@
+﻿<Window x:Class="_1_IntroToWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1_IntroToWPF"
+        mc:Ignorable="d"
+        Title="MyFirstWindow" Height="450" Width="800" Background="#FFFB0000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button FontSize="45" FontWeight="Black" Background="Coral" Grid.Column="0">Click Me</Button>
+        <Button FontSize="40" FontWeight="Black" Background="#FFE5FB1A" Grid.Column="1" Grid.Row="1">Click Me</Button>
+    </Grid>
+</Window>
