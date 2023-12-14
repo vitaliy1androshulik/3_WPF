@@ -34,7 +34,6 @@ namespace _9_ListBoxHomeWorkk
                 OnPropertyChanged(nameof(FullInfo));
             }
         }
-
         private int phone;
 
         public int Phone
