@@ -10,21 +10,22 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="68*"/>
             <ColumnDefinition Width="198*"/>
-            <ColumnDefinition Width="191*"/>
-            <ColumnDefinition Width="1"/>
-            <ColumnDefinition Width="342*"/>
+            <ColumnDefinition Width="113*"/>
+            <ColumnDefinition Width="77*"/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition Width="341*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" BorderBrush="White" Grid.ColumnSpan="3"/>
-        <GridSplitter Grid.Column="3" HorizontalAlignment="Center" Background="Gray" ShowsPreview="True" Width="2"/>
-        <StackPanel Grid.Column="4" Orientation="Vertical">
-            <Label>Name</Label>
-            <TextBox></TextBox>
-            <Label>Surname</Label>
-            <TextBox></TextBox>
-            <Label>Phone</Label>
-            <TextBox></TextBox>
-            <Label>Country</Label>
-            <ComboBox>
+        <ListBox Name="listBox" Grid.Column="0" BorderBrush="{x:Null}" Grid.ColumnSpan="5" Background="#FFFF9999" BorderThickness="0,0,0,0" Margin="0,0,3,0" Foreground="White" FontFamily="SimSun" FontSize="18" SelectionChanged="listBox_SelectionChanged" />
+        <GridSplitter Grid.Column="4" HorizontalAlignment="Center" Background="#FF6666" ShowsPreview="True" Width="5"/>
+        <StackPanel Name="stackPanel" Grid.Column="5" Orientation="Vertical" Background="#FFFF9999">
+            <Label Margin="10,0,5,0" Foreground="White" FontFamily="SimSun" FontSize="22">Name</Label>
+            <TextBox Name="nameTextBox" Margin="10,0,10,0" FontFamily="SimSun" FontSize="14"></TextBox>
+            <Label Margin="10,0,10,0" Foreground="White" FontFamily="SimSun" FontSize="22">Surname</Label>
+            <TextBox  Name="surnameTextBox" Margin="10,0,10,0" FontFamily="SimSun" FontSize="14"></TextBox>
+            <Label Margin="10,0,10,0" Foreground="White" FontFamily="SimSun" FontSize="22">Phone</Label>
+            <TextBox  Name="phoneTextBox" Margin="10,0,10,0" FontFamily="SimSun" FontSize="14"></TextBox>
+            <Label Margin="10,0,10,0" Background="{x:Null}" Foreground="White" FontFamily="SimSun" FontSize="22">Country</Label>
+            <ComboBox  Name="countryComboBox" Margin="10,0,10,0" FontFamily="SimSun" FontSize="16">
                 <ComboBoxItem>Ukraine</ComboBoxItem>
                 <ComboBoxItem>Poland</ComboBoxItem>
                 <ComboBoxItem>Italy</ComboBoxItem>
@@ -35,9 +36,11 @@
 
             </ComboBox>
 
-            <DockPanel LastChildFill="False">
-                <Button Height="25" Width="75" FontWeight="Bold" Margin="0,0,0,20">ADD</Button>
-                <Button Height="25" Width="75" DockPanel.Dock="Right" FontWeight="Bold"> REMOVE</Button>
+            <DockPanel Margin="10,0,10,0" LastChildFill="False" Height="Auto">
+                <Button Click="Button_Click" Height="25" Width="75" FontWeight="Bold" Margin="0,0,0,20" Background="#FF82FF95" Foreground="Black" FontFamily="SimSun">Add</Button>
+                <Button Click="Button_Click_1" Height="25" Width="75" DockPanel.Dock="Right" FontWeight="Bold" Margin="0,0,0,20" Background="#FFFF5F5F" FontFamily="SimSun">Remove</Button>
+                <Button Name="editBtn" DockPanel.Dock="Right" Click="editBtn_Click" Height="25" Width="75" FontWeight="Bold" Margin="0,0,0,20" Background="#FFB266" Foreground="Black" FontFamily="SimSun">Edit</Button>
+                <Button Name="clearBtn" DockPanel.Dock="Left" Click="clearBtn_Click" Height="25" Width="75" FontWeight="Bold" Margin="0,0,0,20" Background="#FFFF5F5F" Foreground="Black" FontFamily="SimSun">Clear</Button>
             </DockPanel>
 
         </StackPanel>
