@@ -9,32 +9,39 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _6_Slider
+namespace _11_DataContext
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModel model = new ViewModel();
         public MainWindow()
         {
             InitializeComponent();
-        }
+            
+            this.DataContext = model;
 
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            this.Opacity = slider.Value / 100.0;
-        }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
         }
-
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+    }
+    class ViewModel
+    {
+        public User User { get; set; }
+        public User User2 { get; set; }
+        public ViewModel()
         {
-            this.Close();
+            User = new User()
+            {
+                Name = "Bob",
+                Email = "bob@gmail.com"
+            };
+            User2 = new User()
+            {
+                Name = "Tom",
+                Email = "Tom@gmail.com"
+            };
         }
     }
 }

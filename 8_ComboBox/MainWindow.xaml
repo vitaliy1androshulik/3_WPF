@@ -1,0 +1,19 @@
+﻿<Window x:Class="_8_ComboBox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_8_ComboBox"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <ComboBox   Height="50" Width="300" Margin="20" Name="comboBox" IsEditable="True" SelectionChanged="comboBox_SelectionChanged">
+            <ComboBoxItem Background="Red">Red</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Green</ComboBoxItem>
+            <ComboBoxItem>Blue</ComboBoxItem>
+        </ComboBox>
+        <Button Width="300" Click="Button_Click">Add New Person</Button>
+        <Button Width="300" Click="Button_Click_1">Delete Selected Person</Button>
+        <Button Width="300" Click="Button_Click_2">Clear All Person</Button>
+    </StackPanel>
+</Window>
