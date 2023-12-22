@@ -1,0 +1,110 @@
+﻿<Window x:Class="_6_Slider.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_6_Slider"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <!--// AllowsTransparency="True" WindowStyle="None"-->
+    <Window.Resources>
+        <ContextMenu x:Key="myContextMenu">
+            <MenuItem Header="1 MainWindows.xaml"></MenuItem>
+            <MenuItem Header="2 MainWindows.xaml.cs"></MenuItem>
+            <MenuItem Header="3 App.xaml"></MenuItem>
+            <Slider Width="80" HorizontalAlignment="Stretch"></Slider>
+            <RadioButton>Type 1</RadioButton>
+            <RadioButton>Type 2</RadioButton>
+        </ContextMenu>
+    </Window.Resources>
+    <DockPanel LastChildFill="False">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="New" InputGestureText="Ctrl+N">
+                    <MenuItem.Icon>
+                        <Image Source="C:\Users\Vitaliy\source\repos\3_WPF\6_Slider\file.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Start page" Click="MenuItem_Click"></MenuItem>
+                <Separator/>
+                <MenuItem Header="Add">
+                    <MenuItem Header="File"></MenuItem>
+                    <MenuItem Header="Folder"></MenuItem>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Window">
+                <MenuItem Header="1 MainWindows.xaml"></MenuItem>
+                <MenuItem Header="2 MainWindows.xaml.cs"></MenuItem>
+                <MenuItem Header="3 App.xaml"></MenuItem>
+                <Slider Width="80" HorizontalAlignment="Stretch"></Slider>
+                <RadioButton>Type 1</RadioButton>
+                <RadioButton>Type 2</RadioButton>
+            </MenuItem>
+            <MenuItem Header="Edit" InputGestureText="Alt+F4" Click="MenuItem_Click_1"></MenuItem>
+            <MenuItem Header="Help"></MenuItem>
+        </Menu>
+        <ToolBarTray>
+            <ToolBar DockPanel.Dock="Top">
+                <Button>Save</Button>
+                <Button>Open</Button>
+                <Button>New</Button>
+                <Separator/>
+                <Button ToolBar.OverflowMode="Always">Cut</Button>
+                <Button>Copy</Button>
+                <Button>Paste</Button>
+                <Border>
+                    <CheckBox>Mute</CheckBox>
+                </Border>
+
+
+                <Label>Volume</Label>
+                <Slider Width="100"></Slider>
+            </ToolBar>
+            <ToolBar DockPanel.Dock="Top">
+                <Button>Save</Button>
+                <Button>Open</Button>
+                <Button>New</Button>
+                <Separator/>
+                <Button ToolBar.OverflowMode="Always">Cut</Button>
+                <Button>Copy</Button>
+                <Button>Paste</Button>
+                <Border>
+                    <CheckBox>Mute</CheckBox>
+                </Border>
+
+
+                <Label>Volume</Label>
+                <Slider Width="100"></Slider>
+            </ToolBar>
+        </ToolBarTray>
+        
+        <Grid Margin="10" DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Slider Width="200" Minimum="0" Maximum="100" Value="10" ToolTip="Slide Me" Margin="30"></Slider>
+            <Slider Grid.Row="1" Width="200" Minimum="0" Maximum="100" Value="10" ToolTip="Slide Me" Margin="30" TickFrequency="10" TickPlacement="BottomRight"></Slider>
+            <Slider Grid.Row="2" Width="200" Maximum="100" Value="10" ToolTip="Slide Me" Margin="30" TickPlacement="BottomRight" Ticks="0,5,10,25,50,100" Foreground="Red" IsSnapToTickEnabled="True"></Slider>
+            <Slider Grid.Row="3" Width="400" Maximum="100" ToolTip="Slide Me" Margin="30" TickPlacement="BottomRight" IsSelectionRangeEnabled="True" SelectionStart="35" SelectionEnd="56" AutoToolTipPlacement="BottomRight"></Slider>
+            <Slider Name="slider" Grid.Column="1" Grid.RowSpan="4" Minimum="10"  Orientation="Vertical" TickFrequency="25" TickPlacement="Both" Maximum="100" Value="100" ValueChanged="Slider_ValueChanged"></Slider>
+        </Grid>
+        <Button DockPanel.Dock="Top" Background="Red" Width="300" Content="Context menu" ContextMenu="{StaticResource myContextMenu}">
+        </Button>
+        
+        <StatusBar DockPanel.Dock="Bottom" Background="Aqua">
+            <Label>Status : normal</Label>
+            <Label>Time : 33 sec.</Label>
+        </StatusBar>
+    </DockPanel>
+    
+</Window>

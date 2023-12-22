@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _1_IntroToWPF
+namespace _4_Controls
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -19,21 +19,6 @@ namespace _1_IntroToWPF
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("You click on button 1");
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show((sender as Button).Content.ToString());
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(textBox.Text);
         }
     }
 }

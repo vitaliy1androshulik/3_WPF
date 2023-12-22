@@ -5,19 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_1_IntroToWPF"
         mc:Ignorable="d"
-        Title="MyFirstWindow" Height="450" Width="800" Background="#FFFB0000">
-    <Grid>
+        Title="MyFirstWindow" Height="450" Width="800">
+    <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*" MinWidth="50"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition MaxHeight="300" MinHeight="200"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button FontSize="45" FontWeight="Black" Background="Coral" Grid.Column="0">Click Me</Button>
-        <Button FontSize="40" FontWeight="Black" Background="#FFE5FB1A" Grid.Column="1" Grid.Row="1">Click Me</Button>
+        <Button Margin="15,5,20,30" FontSize="45" FontWeight="Black" Background="Coral" Grid.Column="0" Click="Button_Click">Click Me</Button>
+        <Button FontSize="40" FontWeight="Black" Background="#FFE5FB1A" Grid.Column="1" Grid.Row="1" Click="Button_Click_1">Click Me</Button>
+        <Button Content="Test" Grid.Column="2" Grid.Row="2" Click="Button_Click_2"></Button>
+        <TextBox x:Name="textBox" Grid.Column="1" TextWrapping="Wrap"></TextBox>
     </Grid>
 </Window>

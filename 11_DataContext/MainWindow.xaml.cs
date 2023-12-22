@@ -9,31 +9,39 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _1_IntroToWPF
+namespace _11_DataContext
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModel model = new ViewModel();
         public MainWindow()
         {
             InitializeComponent();
-        }
+            
+            this.DataContext = model;
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("You click on button 1");
-        }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show((sender as Button).Content.ToString());
         }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+    }
+    class ViewModel
+    {
+        public User User { get; set; }
+        public User User2 { get; set; }
+        public ViewModel()
         {
-            MessageBox.Show(textBox.Text);
+            User = new User()
+            {
+                Name = "Bob",
+                Email = "bob@gmail.com"
+            };
+            User2 = new User()
+            {
+                Name = "Tom",
+                Email = "Tom@gmail.com"
+            };
         }
     }
 }
