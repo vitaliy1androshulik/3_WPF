@@ -1,0 +1,22 @@
+﻿<Window x:Class="_13_ExamTableShulte.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_13_ExamTableShulte"
+        mc:Ignorable="d"
+        Title="Shulte Table" Height="250" Width="300" MaxWidth="300" MaxHeight="250">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Slider Grid.Column="0" Name="wordSlider" Width="150" Height="45" IsSnapToTickEnabled="True" IsSelectionRangeEnabled="True" Maximum="2" Minimum="0" TickPlacement="BottomRight" ValueChanged="wordSlider_ValueChanged"></Slider>
+        <Slider Grid.Column="0" Grid.Row="1" Name="timeSlider" Width="150" Height="45" IsSnapToTickEnabled="True" IsSelectionRangeEnabled="True" Maximum="5" Minimum="0" TickPlacement="BottomRight" ValueChanged="wordSlider_ValueChanged"></Slider>
+        <Label Name="LabelDifficult" Height="25" Width="150" HorizontalAlignment="Center" Grid.Column="0"/>
+        <Label Name="LabelTime" Height="25" Width="150" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
+        <Button Name="startBtn" MouseEnter="Button_MouseEnter" Height="45" Grid.Row="2" Width="150" FontWeight="Bold" FontSize="20" Click="Button_Click" Background="#FF5DCE69" Foreground="White" BorderThickness="0,0,0,0">Start!</Button>
+
+    </Grid>
+</Window>

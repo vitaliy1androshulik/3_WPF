@@ -6,65 +6,85 @@
         xmlns:local="clr-namespace:_12_PhoneBook"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition MinWidth="100" Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition MinWidth="100" Width="*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox Name="contactListBox"               
-                 Grid.Column="0" Background="#FF92CEE9"
-                 HorizontalContentAlignment="Stretch"
-                 ItemsSource="{Binding Path=Contacts}">
-            <!--<ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Border Margin="0,0,10,0" HorizontalAlignment="Left" Grid.RowSpan="2" Width="40" Height="40" Background="Black" CornerRadius="50">
-                            <Image Source="user_icon.png"></Image>
-                        </Border>
-                        <DockPanel Grid.Column="1" Grid.Row="0">
-                            <TextBlock Text="{Binding Path=Name}" FontSize="18" FontWeight="Bold"></TextBlock>
-                            <TextBlock Text="{Binding Path=Surname}" FontSize="18" FontWeight="Bold" Margin="10,0"></TextBlock>
-                        </DockPanel>
-                        <DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="False">
-                            <TextBlock Text="Gender: " FontWeight="Light"></TextBlock>
-                            <TextBlock Text="{Binding Path=GenderName}"></TextBlock>
-                            <TextBlock Text="{Binding Path=Phone}" FontWeight="DemiBold" DockPanel.Dock="Right"></TextBlock>
-                        </DockPanel>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>-->
-        </ListBox>
-        <GridSplitter HorizontalAlignment="Center"
-                      VerticalAlignment="Stretch"
-                      Width="2" Grid.Column="1"></GridSplitter>
-        <StackPanel Grid.Column="2" Background="#FF4F7694">
-            <Label HorizontalAlignment="Center">Name</Label>
-            <TextBox Margin="20,0"></TextBox>
-            <Label HorizontalAlignment="Center">Surname</Label>
-            <TextBox Margin="20,0"></TextBox>
-            <Label HorizontalAlignment="Center">Age</Label>
-            <TextBox Margin="20,0"></TextBox>
-            <Label HorizontalAlignment="Center">Phone</Label>
-            <TextBox  Margin="20,0"></TextBox>
-            <Label HorizontalAlignment="Left" Margin="20,0">Is Male:</Label>
-            <CheckBox  Margin="20,0"></CheckBox>
-            <Button Background="#FF7EC97E" Margin="20,20,20,5">Create Contact Copy</Button>
-            <Button Background="PaleVioletRed" Margin="20,0">Delete Selected Contact</Button>
-            <Border>
-                <Border.Background>
-                    <SolidColorBrush ></SolidColorBrush>
-                </Border.Background>
-            </Border>
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding DublicateCommandCmd}" Modifiers="Ctrl" Key="D"></KeyBinding>
+        <KeyBinding Command="{Binding AddCommandCmd}" Modifiers="Ctrl" Key="N"></KeyBinding>
+        <KeyBinding Command="{Binding RemoveCommandCmd}" Key="Delete"></KeyBinding>
+        <KeyBinding Command="{Binding ClearCommandCmd}" Modifiers="Ctrl" Key="W"></KeyBinding>
+    </Window.InputBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Edit">
+                <MenuItem Header="Dublicate" Command="{Binding DublicateCommandCmd}" InputGestureText="Ctrl+D"></MenuItem>
+                <MenuItem Header="Add New Contact" Command="{Binding AddCommandCmd}" InputGestureText="Ctrl+N"></MenuItem>
+                <MenuItem Header="Remove" Command="{Binding RemoveCommandCmd}"  InputGestureText="Del"></MenuItem>
+                <MenuItem Header="Clear" Command="{Binding ClearCommandCmd}"  InputGestureText="Ctrl+W"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="100" Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition MinWidth="100" Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Name="contactListBox"               
+                     Grid.Column="0" Background="#FF92CEE9"
+                     HorizontalContentAlignment="Stretch"
+                     DisplayMemberPath="FullName"
+                     SelectedItem="{Binding SelectedPhoneBook}"
+                     ItemsSource="{Binding Path=PhoneBooks}">
+                <!--<ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Margin="0,0,10,0" HorizontalAlignment="Left" Grid.RowSpan="2" Width="40" Height="40" Background="Black" CornerRadius="50">
+                                <Image Source="user_icon.png"></Image>
+                            </Border>
+                            <DockPanel Grid.Column="1" Grid.Row="0">
+                                <TextBlock Text="{Binding Path=Name}" FontSize="18" FontWeight="Bold"></TextBlock>
+                                <TextBlock Text="{Binding Path=Surname}" FontSize="18" FontWeight="Bold" Margin="10,0"></TextBlock>
+                            </DockPanel>
+                            <DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="False">
+                                <TextBlock Text="Gender: " FontWeight="Light"></TextBlock>
+                                <TextBlock Text="{Binding Path=GenderName}"></TextBlock>
+                                <TextBlock Text="{Binding Path=Phone}" FontWeight="DemiBold" DockPanel.Dock="Right"></TextBlock>
+                            </DockPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>-->
+            </ListBox>
+            <GridSplitter HorizontalAlignment="Center"
+                          VerticalAlignment="Stretch"
+                          Width="2" Grid.Column="1"></GridSplitter>
+            <StackPanel Grid.Column="2" Background="#FF4F7694">
+                <Label HorizontalAlignment="Center">Name</Label>
+                <TextBox Name="nameTextBox" Text="{Binding SelectedPhoneBook.Name, UpdateSourceTrigger=PropertyChanged}" Margin="20,0"></TextBox>
+                <Label HorizontalAlignment="Center">Surname</Label>
+                <TextBox Name="surnameTextBox" Text="{Binding SelectedPhoneBook.Surname, UpdateSourceTrigger=PropertyChanged }" Margin="20,0"></TextBox>
+                <Label HorizontalAlignment="Center">Age</Label>
+                <TextBox Name="ageTextBox" Text="{Binding SelectedPhoneBook.Age, UpdateSourceTrigger=PropertyChanged}" Margin="20,0"></TextBox>
+                <Label HorizontalAlignment="Center">Phone</Label>
+                <TextBox Name="phoneTextBox" Text="{Binding SelectedPhoneBook.Phone, UpdateSourceTrigger=PropertyChanged}"  Margin="20,0"></TextBox>
+                <Label HorizontalAlignment="Left" Margin="20,0">Is Male:</Label>
+                <CheckBox IsChecked="{Binding SelectedPhoneBook.IsMale, UpdateSourceTrigger=PropertyChanged}"  Margin="20,0"></CheckBox>
+                <Button Command="{Binding DublicateCommandCmd}" Background="#FF7EC97E" Margin="20,20,20,5">Create Contact Copy</Button>
+                <Button Command="{Binding RemoveCommandCmd}" Background="PaleVioletRed" Margin="20,0">Delete Selected Contact</Button>
+                <Button Command="{Binding AddCommandCmd}" Background="#FF7EC97E" Margin="20,20,20,0">Create New Contact</Button>
+                <Button Command="{Binding ClearCommandCmd}" Background="PaleVioletRed" Margin="20,5">Delete All Contact</Button>
+                <Border>
+                    <Border.Background>
+                        <SolidColorBrush ></SolidColorBrush>
+                    </Border.Background>
+                </Border>
 
-        </StackPanel>
-    </Grid>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
 </Window>

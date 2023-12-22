@@ -52,21 +52,27 @@ namespace _7_IndicatorsRangeControlsHomeWork
                 TableGrid.Rows = 3;
                 TableGrid.Columns = 3;
 
+                this.Height = 395;
+                this.Width = 379;
+
 
                 var rng = new Random();
                 rng.Shuffle(c);
                 int i = 0;
                 foreach (int number in c)
                 {
+                    
                     Button button = new Button();
                     button.Content = number;
                     Random r = new Random();
                     button.Background = new SolidColorBrush(Color.FromRgb((byte)r.Next(76, 255), (byte)r.Next(76, 255), (byte)r.Next(76, 255)));
                     button.Background.Opacity = 0.6;
                     button.FontSize = 12;
+                    button.Height = 125;
+                    button.Width = 125;
                     button.FontWeight = FontWeights.Bold;
                     button.Click += B_Click;
-                    button.Margin = new Thickness(3);
+                    button.Margin = new Thickness(1);
                     button.BorderThickness = new Thickness(0);
                     TableGrid.Children.Add(button);
                 }
@@ -130,6 +136,7 @@ namespace _7_IndicatorsRangeControlsHomeWork
                     Random r = new Random();
                     button.Background = new SolidColorBrush(Color.FromRgb((byte)r.Next(1, 255), (byte)r.Next(1, 255), (byte)r.Next(1, 233)));
                     button.Background.Opacity = 0.6;
+                    
                     button.FontSize = 12;
                     button.FontWeight = FontWeights.Bold;
                     button.Click += B_Click;

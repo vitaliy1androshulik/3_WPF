@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Net.NetworkInformation;
+﻿using System.Net.NetworkInformation;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,22 +21,25 @@ namespace _12_PhoneBook
         public MainWindow()
         {
             InitializeComponent();
-            
-
+            contactListBox.DisplayMemberPath = nameof(PhoneBook.FullInfo);
             this.DataContext = model;
         }
-    }
-    class ViewModel
-    {
-        private ObservableCollection<Contact> contacts;
 
-        public ViewModel()
-        {
-            contacts = new ObservableCollection<Contact>();
-            contacts.Add(new Contact() { Name = "Vova", Age = 30, Surname = "Pupkin", Phone = "+3807575828", IsMale = true });
-            contacts.Add(new Contact() { Name = "Marusia", Age = 25, Surname = "Shishik", Phone = "+380771244", IsMale = false });
-            contacts.Add(new Contact() { Name = "Olga", Age = 33, Surname = "Shelesh", Phone = "+38067285792", IsMale = false });
-        }
-        public IEnumerable<Contact> Contacts => contacts; //прив'язуємося до contacs
+
+
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+            ////model.DublicateSelectedContact();
+        //}
+        //private void Button_Click1(object sender, RoutedEventArgs e)
+        //{
+            ////model.DeleteSelectedContact();
+        //}
+
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+            ////model.DeleteAllContact();
+        //}
     }
 }

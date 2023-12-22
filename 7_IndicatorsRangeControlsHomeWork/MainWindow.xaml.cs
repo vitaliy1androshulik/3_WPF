@@ -17,13 +17,12 @@ namespace _7_IndicatorsRangeControlsHomeWork
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int diffculty =0;
+        private int difficulty =0;
         private int time = 0;
         public MainWindow()
         {
             InitializeComponent();
-            LabelDifficult.Content = "Easy       Medium       Hard";
-            LabelTime.Content = "10   15    20     25    30   60";
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -52,15 +51,58 @@ namespace _7_IndicatorsRangeControlsHomeWork
             {
                 time = 60;
             }
-            Table table = new Table(diffculty, time);
+            Table table = new Table(difficulty, time);
             this.Close();
             table.Show();
         }
 
         private void wordSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            diffculty = (int)wordSlider.Value;
+            //diffculty = (int)wordSlider.Value;
             time = (int)timeSlider.Value;
+        }
+
+        private void startBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void startBtn_PreviewDragEnter(object sender, DragEventArgs e)
+        {
+            startBtn.Background = new SolidColorBrush(Color.FromRgb(255, 40, 30));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            easyBtn.Background = new SolidColorBrush(Color.FromRgb(47, 78, 245));
+            easyBtn.Foreground = new SolidColorBrush(Color.FromRgb(255,255,255));
+            mediumBtn.Background = new SolidColorBrush(Colors.Transparent);
+            mediumBtn.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            hardBtn.Background= new SolidColorBrush(Colors.Transparent);
+            hardBtn.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            difficulty = 0;
+        }
+
+        private void mediumBtn_Click(object sender, RoutedEventArgs e)
+        {
+            mediumBtn.Background = new SolidColorBrush(Color.FromRgb(47, 78, 245));
+            mediumBtn.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            easyBtn.Background = new SolidColorBrush(Colors.Transparent);
+            easyBtn.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            hardBtn.Background = new SolidColorBrush(Colors.Transparent);
+            hardBtn.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            difficulty = 1;
+        }
+
+        private void hardBtn_Click(object sender, RoutedEventArgs e)
+        {
+            hardBtn.Background = new SolidColorBrush(Color.FromRgb(47, 78, 245));
+            hardBtn.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            easyBtn.Background = new SolidColorBrush(Colors.Transparent);
+            easyBtn.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            mediumBtn.Background = new SolidColorBrush(Colors.Transparent);
+            mediumBtn.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            difficulty = 2;
         }
     }
 }

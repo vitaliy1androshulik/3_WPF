@@ -26,24 +26,40 @@
             <TextBox  Name="phoneTextBox" Margin="10,0,10,0" FontFamily="SimSun" FontSize="14"></TextBox>
             <Label Margin="10,0,10,0" Background="{x:Null}" Foreground="White" FontFamily="SimSun" FontSize="22">Country</Label>
             <ComboBox  Name="countryComboBox" Margin="10,0,10,0" FontFamily="SimSun" FontSize="16">
-                <ComboBoxItem>Ukraine</ComboBoxItem>
-                <ComboBoxItem>Poland</ComboBoxItem>
-                <ComboBoxItem>Italy</ComboBoxItem>
-                <ComboBoxItem>France</ComboBoxItem>
-                <ComboBoxItem>Austria</ComboBoxItem>
-                <ComboBoxItem>Spain</ComboBoxItem>
-                <ComboBoxItem>Portugal</ComboBoxItem>
-
+                <ComboBoxItem Selected="ComboBoxItem_Selected">Ukraine +380</ComboBoxItem>
+                <ComboBoxItem Selected="ComboBoxItem_Selected_1">Poland +48</ComboBoxItem>
+                <ComboBoxItem Selected="ComboBoxItem_Selected_2">Italy +39</ComboBoxItem>
+                <ComboBoxItem Selected="ComboBoxItem_Selected_3">France +33</ComboBoxItem>
+                <ComboBoxItem Selected="ComboBoxItem_Selected_4">Austria +43</ComboBoxItem>
+                <ComboBoxItem Selected="ComboBoxItem_Selected_5">Spain +34</ComboBoxItem>
+                <ComboBoxItem Selected="ComboBoxItem_Selected_6">Portugal +351</ComboBoxItem>
             </ComboBox>
-
-            <DockPanel Margin="10,0,10,0" LastChildFill="False" Height="Auto">
-                <Button Click="Button_Click" Height="25" Width="75" FontWeight="Bold" Margin="0,0,0,20" Background="#FF82FF95" Foreground="Black" FontFamily="SimSun">Add</Button>
-                <Button Click="Button_Click_1" Height="25" Width="75" DockPanel.Dock="Right" FontWeight="Bold" Margin="0,0,0,20" Background="#FFFF5F5F" FontFamily="SimSun">Remove</Button>
-                <Button Name="editBtn" DockPanel.Dock="Right" Click="editBtn_Click" Height="25" Width="75" FontWeight="Bold" Margin="0,0,0,20" Background="#FFB266" Foreground="Black" FontFamily="SimSun">Edit</Button>
-                <Button Name="clearBtn" DockPanel.Dock="Left" Click="clearBtn_Click" Height="25" Width="75" FontWeight="Bold" Margin="0,0,0,20" Background="#FFFF5F5F" Foreground="Black" FontFamily="SimSun">Clear</Button>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
+            <DockPanel DockPanel.Dock="Bottom"  Grid.Column="5" Margin="10,0,10,0" LastChildFill="False" Height="Auto">
+                <Button Click="Button_Click" Height="25" Width="75" FontWeight="Bold" Margin="0,2,4,0" Background="#FF82FF95" Foreground="Black" FontFamily="SimSun">Add</Button>
+                <Button Click="Button_Click_1" Height="25" Width="75" DockPanel.Dock="Right" FontWeight="Bold" Margin="0,2,2,0" Background="#FFFF5F5F" FontFamily="SimSun">Remove</Button>
+                <Button Name="editBtn" DockPanel.Dock="Right" Click="editBtn_Click" Height="25" Width="75" FontWeight="Bold" Margin="0,2,4,0" Background="#FFB266" Foreground="Black" FontFamily="SimSun">Edit</Button>
+                <Button Name="clearBtn" DockPanel.Dock="Left" Click="clearBtn_Click" Height="25" Width="75" FontWeight="Bold" Margin="0,2,4,0" Background="#FFFF5F5F" Foreground="Black" FontFamily="SimSun">Clear</Button>
             </DockPanel>
 
-        </StackPanel>
 
+        </StackPanel>
+        
+        
     </Grid>
 </Window>

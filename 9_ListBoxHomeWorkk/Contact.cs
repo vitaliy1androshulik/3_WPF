@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -34,9 +35,10 @@ namespace _9_ListBoxHomeWorkk
                 OnPropertyChanged(nameof(FullInfo));
             }
         }
-        private int phone;
 
-        public int Phone
+        private string phone;
+
+        public string Phone
         {
             get { return phone; }
             set
